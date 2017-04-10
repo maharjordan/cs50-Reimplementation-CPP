@@ -29,28 +29,28 @@ int main(){
 	int coin { };
 	int coin_buffer { };
 	//Get the quarters
-	if( change >= 25){
+	if( change >= QUARTER){
     	coin_buffer = change / QUARTER;
 		coin += coin_buffer;
 		change -= coin_buffer * QUARTER;
 	}
 	
 	//Get the dimes
-	if( change >= 10){
+	if( change >= DIME){
     	coin_buffer = change / DIME;
 		coin += coin_buffer;
 		change -= coin_buffer * DIME;
 	}
 	
 	//Get the nickels
-	if( change >= 5 ){
+	if( change >= NICKEL ){
     	coin_buffer = change / NICKEL;
 		coin += coin_buffer;
 		change -= coin_buffer * NICKEL;
 	}
 	
 	//Get the pennies
-	if( change >= 1 ){
+	if( change >= PENNY ){
     	coin_buffer = change / PENNY;
 		coin += coin_buffer;
 		change -= coin_buffer * PENNY;
