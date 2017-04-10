@@ -6,6 +6,7 @@ using namespace std;
 long long get_long_long();
 int digits(long long x);
 int digit_spec(long long x, int pos);
+bool luhn(long long x);
 
 int main(){
 	//Prompt the user for a credit card number
@@ -76,4 +77,27 @@ int digit_spec(long long x, int pos){
 	x %= 10;
 	
 	return (int)x;
+}
+
+bool luhn(long long x){
+    int digit_num = digits(x);
+    int sum { 0 };
+    
+    for (int i = 1; i < digit_num; i += 2){
+        sum += digit_spec(x, i);   
+    }
+    
+    for (int i = 2; i < digit_num; i+= 2){
+        int place = digit_spec(x,i) * 2;
+        if( place < 10){
+            sum += place;
+        }
+        else{
+            sum += (place / 10);
+            sum += (place % 10);
+        }
+    }
+    
+    if( sum % 10 == 0) return true;
+    else return false;
 }
